@@ -1,0 +1,2588 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CDB IPL Prediction League - 2018</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link type="text/css" href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/new-look.css">
+    <style>
+        * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    .outer-container {
+        background-color: #ccc;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 10px;
+    }
+
+    .inner-container {
+        height: 100%;
+        overflow: hidden;
+        background: #263973;
+        /*min-height: 600px;*/
+    }
+
+    .table-header {
+        position: relative;
+    }
+
+    .table-body {
+        overflow: auto;
+    }
+
+    .match-col,
+    .prediction_col {
+        text-align: left;
+    }
+
+    .prediction_col {
+        min-width: 130px;
+    }
+
+    .header-cell,
+    th.header-cell {
+        background: #263973;
+        padding: 1rem 0 1rem;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .col2 {
+        min-width: 130px;
+    }
+
+    .match-col {
+        min-width: 525px;
+    }
+
+    #bodytable tbody tr.even th,
+    #bodytable tbody tr.even td {
+        background: #fff;
+    }
+
+    #bodytable tbody tr.odd th,
+    #bodytable tbody tr.odd td {
+        background: azure;
+    }
+
+    .main-container {
+        /*position: relative;*/
+    }
+
+    .button-container {
+        width: 334px;
+        border: 2px solid #fff;
+        border-radius: 4px;
+        position: absolute;
+        margin-top: -50px;
+        margin-left: calc(50% - 170px);
+    }
+
+    .button-container a {
+        color: #fff;
+        font-size: 1.4rem;
+        padding: 5px 0;
+        width: 110px;
+        display: inline-block;
+        text-align: center;
+        font-weight: 700;
+        border-right: 1px solid;
+        float: left;
+    }
+
+    .button-container a.active {
+        background: #fff;
+        color: #263973;
+    }
+
+    .button-container a:last-child {
+        float: left;
+        border-right: 0;
+    }
+
+    .fixture__btn-list>li:first-child {
+        display: none;
+    }
+
+    #voteContainer .fixture__team-name {
+        font-size: 1.8rem;
+    }
+
+    #voteContainer .match-list__date {
+        text-align: left;
+        font-size: 1.9rem;
+    }
+
+    .fixture__team:first-of-type {
+        text-align: right;
+    }
+
+    .fixture__team:last-of-type {
+        text-align: left;
+    }
+
+    .margintop50 {
+        margin-top: 50px;
+    }
+
+    #predictionContainer .fixture__team-name {
+        font-size: 1.8rem;
+        text-align: center;
+    }
+
+    #predictionContainer .fixture__teams:after {
+        display: none;
+    }
+
+    #predictionContainer .fixture__teams .fixture__info {
+        /* flex: 0 0 100%; */
+        width: 100%;
+        margin-top: 75px;
+        /* float: none; */
+        /* display: block; */
+        position: absolute;
+    }
+    .googly.CSK {
+        background: #ef9c03;
+    }
+
+    .googly.KXIP {
+        background: #b92025;
+    }
+
+    .googly.KKR {
+        background: #4b3c7e;
+    }
+
+    .googly.RCB {
+        background: #3e3f3e;
+    }
+
+    .googly.SRH {
+        background: #f47b30;
+    }
+
+    @media (max-width:1400px) {
+        .app-container {
+            width: 100%;
+        }
+    }
+
+    .visible-xs {
+        display: none;
+    }
+
+    @media (max-width:450px) {
+        .app-container {
+            padding: 15px;
+        }
+        .hide-xs {
+            display: none;
+        }
+        .visible-xs {
+            display: block;
+        }
+    }
+    .header img {
+        min-height: 200px;
+    }
+    .tossWinner {
+      animation: blinker 1s linear infinite;
+    }
+
+    @keyframes blinker {
+      50% {
+        opacity: 0;
+      }
+    }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img class="hide-xs" src="img/Homepage-Banner-2018.jpg" />
+        <img class="visible-xs" src="img/mobile-banner.jpg" />
+        <div class="button-container">
+            <a href="#" class="active" target="leaderboardContainer" self="voteContainer">Vote</a>
+            <a href="#" class="" target="leaderboardContainer" self="predictionContainer">Predictions</a>
+            <a href="#" class="" target="predictionContainer" self="leaderboardContainer">Leaderboard</a>
+        </div>
+    </div>
+    <div class="main-container" id="voteContainer">
+        <div class="app-container">
+            <div class="match-list__list">
+                <div class="js-list">
+                    <h3 class="match-list__date js-date">Saturday 23rd March 2019</h3>
+                    <div class="js-match match-list__item fixture CSKRCB" data-match-id="11137" data-timestamp="2019-03-23T20:00:00+0530" data-team-ids="1,9" data-venue-id="1" data-tournament-id="10192" data-venue-lat="13.062" data-venue-lng="80.279">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 1, </strong> M. A. Chidambaram Stadium, Chennai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/chennai-super-kings-vs-royal-challengers-bangalore/ET00097942?utm_source=iplt20.com&amp;utm_medium=Referral&amp;utm_campaign=Referral_IPLWebsiteCSKvRCB_CSKIPL2019" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match1">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Sunday 24th March 2019</h3>
+                    <div class="js-match match-list__item fixture KKRSRH" data-match-id="11138" data-timestamp="2019-03-24T16:00:00+0530" data-team-ids="5,62" data-venue-id="2" data-tournament-id="10192" data-venue-lat="22.564" data-venue-lng="88.343">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 2, </strong> Eden Gardens, Kolkata</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/kolkata-knight-riders-vs-sunrisers-hyderabad/seat-layout/aerialview/ET00098147/IPEG/10031" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match2">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture MIDC" data-match-id="11139" data-timestamp="2019-03-24T20:00:00+0530" data-team-ids="6,3" data-venue-id="4" data-tournament-id="10192" data-venue-lat="18.938" data-venue-lng="72.825">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 3, </strong> Wankhede Stadium, Mumbai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/mumbai-indians-vs-delhi-capitals/seat-layout/aerialview/ET00097271/WSMI/10074" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match3">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Monday 25th March 2019</h3>
+                    <div class="js-match match-list__item fixture RRKXIP" data-match-id="11140" data-timestamp="2019-03-25T20:00:00+0530" data-team-ids="8,4" data-venue-id="3" data-tournament-id="10192" data-venue-lat="26.894" data-venue-lng="75.803">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 4, </strong> Sawai Mansingh Stadium, Jaipur</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/rajasthan-royals-vs-kings-xi-punjab/seat-layout/aerialview/ET00098073/SMSJ/10066?utm_source=iplt20.com&amp;utm_medium=Referral&amp;utm_campaign=Referral_IPLWebsiteRRvKXIP_RRIPL2019" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match4">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Tuesday 26th March 2019</h3>
+                    <div class="js-match match-list__item fixture DCCSK" data-match-id="11141" data-timestamp="2019-03-26T20:00:00+0530" data-team-ids="3,1" data-venue-id="8" data-tournament-id="10192" data-venue-lat="28.637" data-venue-lng="77.243">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 5, </strong> Feroz Shah Kotla Ground, Delhi</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://www.delhicapitals.in/delhi-capitals-vs-chennai-super-kings" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match5">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Wednesday 27th March 2019</h3>
+                    <div class="js-match match-list__item fixture KKRKXIP" data-match-id="11142" data-timestamp="2019-03-27T20:00:00+0530" data-team-ids="5,4" data-venue-id="2" data-tournament-id="10192" data-venue-lat="22.564" data-venue-lng="88.343">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 6, </strong> Eden Gardens, Kolkata</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/kolkata-knight-riders-vs-kings-xi-punjab/ET00098148?utm_source=iplt20.com&amp;utm_medium=Referral&amp;utm_campaign=Referral_KKR2019_iplt20.com_KKRvKXIP" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match6">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Thursday 28th March 2019</h3>
+                    <div class="js-match match-list__item fixture RCBMI" data-match-id="11143" data-timestamp="2019-03-28T20:00:00+0530" data-team-ids="9,6" data-venue-id="5" data-tournament-id="10192" data-venue-lat="12.978" data-venue-lng="77.599">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 7, </strong> M. Chinnaswamy Stadium, Bengaluru</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://tickets.royalchallengers.com/SelectStand/Season-12/3" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match7">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Friday 29th March 2019</h3>
+                    <div class="js-match match-list__item fixture SRHRR" data-match-id="11144" data-timestamp="2019-03-29T20:00:00+0530" data-team-ids="62,8" data-venue-id="10" data-tournament-id="10192" data-venue-lat="17.406" data-venue-lng="78.55">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 8, </strong> Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://www.eventsnow.com/events/11618-ipl-2019-srh-vs-rajasthan-royals" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match8">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Saturday 30th March 2019</h3>
+                    <div class="js-match match-list__item fixture KXIPMI" data-match-id="11145" data-timestamp="2019-03-30T16:00:00+0530" data-team-ids="4,6" data-venue-id="9" data-tournament-id="10192" data-venue-lat="30.69" data-venue-lng="76.737">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 9, </strong> IS Bindra Stadium, Mohali</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match9">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture DCKKR" data-match-id="11146" data-timestamp="2019-03-30T20:00:00+0530" data-team-ids="3,5" data-venue-id="8" data-tournament-id="10192" data-venue-lat="28.637" data-venue-lng="77.243">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 10, </strong> Feroz Shah Kotla Ground, Delhi</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://www.delhicapitals.in/delhi-capitals-vs-kolkata-knight-riders" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match10">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Sunday 31st March 2019</h3>
+                    <div class="js-match match-list__item fixture SRHRCB" data-match-id="11147" data-timestamp="2019-03-31T16:00:00+0530" data-team-ids="62,9" data-venue-id="10" data-tournament-id="10192" data-venue-lat="17.406" data-venue-lng="78.55">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 11, </strong> Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://www.eventsnow.com/events/11619-ipl-2019-srh-vs-royal-challengers-bangalore" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match11">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture CSKRR" data-match-id="11148" data-timestamp="2019-03-31T20:00:00+0530" data-team-ids="1,8" data-venue-id="1" data-tournament-id="10192" data-venue-lat="13.062" data-venue-lng="80.279">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 12, </strong> M. A. Chidambaram Stadium, Chennai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match12">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Monday 1st April 2019</h3>
+                    <div class="js-match match-list__item fixture KXIPDC" data-match-id="11149" data-timestamp="2019-04-01T20:00:00+0530" data-team-ids="4,3" data-venue-id="9" data-tournament-id="10192" data-venue-lat="30.69" data-venue-lng="76.737">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 13, </strong> IS Bindra Stadium, Mohali</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match13">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Tuesday 2nd April 2019</h3>
+                    <div class="js-match match-list__item fixture RRRCB" data-match-id="11150" data-timestamp="2019-04-02T20:00:00+0530" data-team-ids="8,9" data-venue-id="3" data-tournament-id="10192" data-venue-lat="26.894" data-venue-lng="75.803">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 14, </strong> Sawai Mansingh Stadium, Jaipur</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/rajasthan-royals-vs-royal-challengers-bangalore/seat-layout/aerialview/ET00098074/SMSJ/10067?utm_source=iplt20.com&amp;utm_medium=Referral&amp;utm_campaign=Referral_IPLWebsiteRRvRCB_RRIPL2019" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match14">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Wednesday 3rd April 2019</h3>
+                    <div class="js-match match-list__item fixture MICSK" data-match-id="11151" data-timestamp="2019-04-03T20:00:00+0530" data-team-ids="6,1" data-venue-id="4" data-tournament-id="10192" data-venue-lat="18.938" data-venue-lng="72.825">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 15, </strong> Wankhede Stadium, Mumbai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/mumbai-indians-vs-chennai-super-kings/ET00097272?utm_source=iplt20.com&amp;utm_medium=Referral&amp;utm_campaign=Referral_MI2019_iplt20.com_MIvCSK" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match15">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Thursday 4th April 2019</h3>
+                    <div class="js-match match-list__item fixture DCSRH" data-match-id="11152" data-timestamp="2019-04-04T20:00:00+0530" data-team-ids="3,62" data-venue-id="8" data-tournament-id="10192" data-venue-lat="28.637" data-venue-lng="77.243">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 16, </strong> Feroz Shah Kotla Ground, Delhi</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://www.delhicapitals.in/delhi-capitals-vs-sunrisers-hyderabad" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match16">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Friday 5th April 2019</h3>
+                    <div class="js-match match-list__item fixture RCBKKR" data-match-id="11153" data-timestamp="2019-04-05T20:00:00+0530" data-team-ids="9,5" data-venue-id="5" data-tournament-id="10192" data-venue-lat="12.978" data-venue-lng="77.599">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 17, </strong> M. Chinnaswamy Stadium, Bengaluru</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://tickets.royalchallengers.com/SelectStand/Season-12/4" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match17">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Saturday 6th April 2019</h3>
+                    <div class="js-match match-list__item fixture CSKKXIP" data-match-id="11309" data-timestamp="2019-04-06T16:00:00+0530" data-team-ids="1,4" data-venue-id="1" data-tournament-id="10192" data-venue-lat="13.062" data-venue-lng="80.279">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 18, </strong> M. A. Chidambaram Stadium, Chennai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match18">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture SRHMI" data-match-id="11310" data-timestamp="2019-04-06T20:00:00+0530" data-team-ids="62,6" data-venue-id="10" data-tournament-id="10192" data-venue-lat="17.406" data-venue-lng="78.55">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 19, </strong> Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match19">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Sunday 7th April 2019</h3>
+                    <div class="js-match match-list__item fixture RCBDC" data-match-id="11311" data-timestamp="2019-04-07T16:00:00+0530" data-team-ids="9,3" data-venue-id="5" data-tournament-id="10192" data-venue-lat="12.978" data-venue-lng="77.599">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 20, </strong> M. Chinnaswamy Stadium, Bengaluru</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match20">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture RRKKR" data-match-id="11312" data-timestamp="2019-04-07T20:00:00+0530" data-team-ids="8,5" data-venue-id="3" data-tournament-id="10192" data-venue-lat="26.894" data-venue-lng="75.803">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 21, </strong> Sawai Mansingh Stadium, Jaipur</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match21">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Monday 8th April 2019</h3>
+                    <div class="js-match match-list__item fixture KXIPSRH" data-match-id="11313" data-timestamp="2019-04-08T20:00:00+0530" data-team-ids="4,62" data-venue-id="9" data-tournament-id="10192" data-venue-lat="30.69" data-venue-lng="76.737">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 22, </strong> IS Bindra Stadium, Mohali</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match22">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Tuesday 9th April 2019</h3>
+                    <div class="js-match match-list__item fixture CSKKKR" data-match-id="11314" data-timestamp="2019-04-09T20:00:00+0530" data-team-ids="1,5" data-venue-id="1" data-tournament-id="10192" data-venue-lat="13.062" data-venue-lng="80.279">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 23, </strong> M. A. Chidambaram Stadium, Chennai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match23">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Wednesday 10th April 2019</h3>
+                    <div class="js-match match-list__item fixture MIKXIP" data-match-id="11315" data-timestamp="2019-04-10T20:00:00+0530" data-team-ids="6,4" data-venue-id="4" data-tournament-id="10192" data-venue-lat="18.938" data-venue-lng="72.825">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 24, </strong> Wankhede Stadium, Mumbai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match24">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Thursday 11th April 2019</h3>
+                    <div class="js-match match-list__item fixture RRCSK" data-match-id="11316" data-timestamp="2019-04-11T20:00:00+0530" data-team-ids="8,1" data-venue-id="3" data-tournament-id="10192" data-venue-lat="26.894" data-venue-lng="75.803">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 25, </strong> Sawai Mansingh Stadium, Jaipur</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match25">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Friday 12th April 2019</h3>
+                    <div class="js-match match-list__item fixture KKRDC" data-match-id="11317" data-timestamp="2019-04-12T20:00:00+0530" data-team-ids="5,3" data-venue-id="2" data-tournament-id="10192" data-venue-lat="22.564" data-venue-lng="88.343">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 26, </strong> Eden Gardens, Kolkata</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match26">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Saturday 13th April 2019</h3>
+                    <div class="js-match match-list__item fixture MIRR" data-match-id="11318" data-timestamp="2019-04-13T16:00:00+0530" data-team-ids="6,8" data-venue-id="4" data-tournament-id="10192" data-venue-lat="18.938" data-venue-lng="72.825">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 27, </strong> Wankhede Stadium, Mumbai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match27">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture KXIPRCB" data-match-id="11319" data-timestamp="2019-04-13T20:00:00+0530" data-team-ids="4,9" data-venue-id="9" data-tournament-id="10192" data-venue-lat="30.69" data-venue-lng="76.737">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 28, </strong> IS Bindra Stadium, Mohali</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match28">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Sunday 14th April 2019</h3>
+                    <div class="js-match match-list__item fixture KKRCSK" data-match-id="11320" data-timestamp="2019-04-14T16:00:00+0530" data-team-ids="5,1" data-venue-id="2" data-tournament-id="10192" data-venue-lat="22.564" data-venue-lng="88.343">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 29, </strong> Eden Gardens, Kolkata</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match29">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture SRHDC" data-match-id="11321" data-timestamp="2019-04-14T20:00:00+0530" data-team-ids="62,3" data-venue-id="10" data-tournament-id="10192" data-venue-lat="17.406" data-venue-lng="78.55">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 30, </strong> Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match30">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Monday 15th April 2019</h3>
+                    <div class="js-match match-list__item fixture MIRCB" data-match-id="11322" data-timestamp="2019-04-15T20:00:00+0530" data-team-ids="6,9" data-venue-id="4" data-tournament-id="10192" data-venue-lat="18.938" data-venue-lng="72.825">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 31, </strong> Wankhede Stadium, Mumbai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match31">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Tuesday 16th April 2019</h3>
+                    <div class="js-match match-list__item fixture KXIPRR" data-match-id="11323" data-timestamp="2019-04-16T20:00:00+0530" data-team-ids="4,8" data-venue-id="9" data-tournament-id="10192" data-venue-lat="30.69" data-venue-lng="76.737">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 32, </strong> IS Bindra Stadium, Mohali</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match32">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Wednesday 17th April 2019</h3>
+                    <div class="js-match match-list__item fixture SRHCSK" data-match-id="11324" data-timestamp="2019-04-17T20:00:00+0530" data-team-ids="62,1" data-venue-id="10" data-tournament-id="10192" data-venue-lat="17.406" data-venue-lng="78.55">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 33, </strong> Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match33">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Thursday 18th April 2019</h3>
+                    <div class="js-match match-list__item fixture DCMI" data-match-id="11325" data-timestamp="2019-04-18T20:00:00+0530" data-team-ids="3,6" data-venue-id="8" data-tournament-id="10192" data-venue-lat="28.637" data-venue-lng="77.243">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 34, </strong> Feroz Shah Kotla Ground, Delhi</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match34">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Friday 19th April 2019</h3>
+                    <div class="js-match match-list__item fixture KKRRCB" data-match-id="11326" data-timestamp="2019-04-19T20:00:00+0530" data-team-ids="5,9" data-venue-id="2" data-tournament-id="10192" data-venue-lat="22.564" data-venue-lng="88.343">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 35, </strong> Eden Gardens, Kolkata</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match35">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Saturday 20th April 2019</h3>
+                    <div class="js-match match-list__item fixture RRMI" data-match-id="11327" data-timestamp="2019-04-20T16:00:00+0530" data-team-ids="8,6" data-venue-id="3" data-tournament-id="10192" data-venue-lat="26.894" data-venue-lng="75.803">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 36, </strong> Sawai Mansingh Stadium, Jaipur</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match36">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture DCKXIP" data-match-id="11328" data-timestamp="2019-04-20T20:00:00+0530" data-team-ids="3,4" data-venue-id="8" data-tournament-id="10192" data-venue-lat="28.637" data-venue-lng="77.243">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 37, </strong> Feroz Shah Kotla Ground, Delhi</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match37">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Sunday 21st April 2019</h3>
+                    <div class="js-match match-list__item fixture SRHKKR" data-match-id="11329" data-timestamp="2019-04-21T16:00:00+0530" data-team-ids="62,5" data-venue-id="10" data-tournament-id="10192" data-venue-lat="17.406" data-venue-lng="78.55">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 38, </strong> Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match38">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture RCBCSK" data-match-id="11330" data-timestamp="2019-04-21T20:00:00+0530" data-team-ids="9,1" data-venue-id="5" data-tournament-id="10192" data-venue-lat="12.978" data-venue-lng="77.599">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 39, </strong> M. Chinnaswamy Stadium, Bengaluru</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match39">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Monday 22nd April 2019</h3>
+                    <div class="js-match match-list__item fixture RRDC" data-match-id="11331" data-timestamp="2019-04-22T20:00:00+0530" data-team-ids="8,3" data-venue-id="3" data-tournament-id="10192" data-venue-lat="26.894" data-venue-lng="75.803">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 40, </strong> Sawai Mansingh Stadium, Jaipur</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match40">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Tuesday 23rd April 2019</h3>
+                    <div class="js-match match-list__item fixture CSKSRH" data-match-id="11332" data-timestamp="2019-04-23T20:00:00+0530" data-team-ids="1,62" data-venue-id="1" data-tournament-id="10192" data-venue-lat="13.062" data-venue-lng="80.279">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 41, </strong> M. A. Chidambaram Stadium, Chennai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match41">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Wednesday 24th April 2019</h3>
+                    <div class="js-match match-list__item fixture RCBKXIP" data-match-id="11333" data-timestamp="2019-04-24T20:00:00+0530" data-team-ids="9,4" data-venue-id="5" data-tournament-id="10192" data-venue-lat="12.978" data-venue-lng="77.599">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 42, </strong> M. Chinnaswamy Stadium, Bengaluru</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match42">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Thursday 25th April 2019</h3>
+                    <div class="js-match match-list__item fixture KKRRR" data-match-id="11334" data-timestamp="2019-04-25T20:00:00+0530" data-team-ids="5,8" data-venue-id="2" data-tournament-id="10192" data-venue-lat="22.564" data-venue-lng="88.343">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 43, </strong> Eden Gardens, Kolkata</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match43">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Friday 26th April 2019</h3>
+                    <div class="js-match match-list__item fixture CSKMI" data-match-id="11335" data-timestamp="2019-04-26T20:00:00+0530" data-team-ids="1,6" data-venue-id="1" data-tournament-id="10192" data-venue-lat="13.062" data-venue-lng="80.279">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 44, </strong> M. A. Chidambaram Stadium, Chennai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match44">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Saturday 27th April 2019</h3>
+                    <div class="js-match match-list__item fixture RRSRH" data-match-id="11336" data-timestamp="2019-04-27T20:00:00+0530" data-team-ids="8,62" data-venue-id="3" data-tournament-id="10192" data-venue-lat="26.894" data-venue-lng="75.803">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 45, </strong> Sawai Mansingh Stadium, Jaipur</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match45">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Sunday 28th April 2019</h3>
+                    <div class="js-match match-list__item fixture DCRCB" data-match-id="11337" data-timestamp="2019-04-28T16:00:00+0530" data-team-ids="3,9" data-venue-id="8" data-tournament-id="10192" data-venue-lat="28.637" data-venue-lng="77.243">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 46, </strong> Feroz Shah Kotla Ground, Delhi</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match46">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture KKRMI" data-match-id="11338" data-timestamp="2019-04-28T20:00:00+0530" data-team-ids="5,6" data-venue-id="2" data-tournament-id="10192" data-venue-lat="22.564" data-venue-lng="88.343">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 47, </strong> Eden Gardens, Kolkata</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match47">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Monday 29th April 2019</h3>
+                    <div class="js-match match-list__item fixture SRHKXIP" data-match-id="11339" data-timestamp="2019-04-29T20:00:00+0530" data-team-ids="62,4" data-venue-id="10" data-tournament-id="10192" data-venue-lat="17.406" data-venue-lng="78.55">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 48, </strong> Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match48">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Tuesday 30th April 2019</h3>
+                    <div class="js-match match-list__item fixture RCBRR" data-match-id="11340" data-timestamp="2019-04-30T20:00:00+0530" data-team-ids="9,8" data-venue-id="5" data-tournament-id="10192" data-venue-lat="12.978" data-venue-lng="77.599">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 49, </strong> M. Chinnaswamy Stadium, Bengaluru</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match49">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Wednesday 1st May 2019</h3>
+                    <div class="js-match match-list__item fixture CSKDC" data-match-id="11341" data-timestamp="2019-05-01T20:00:00+0530" data-team-ids="1,3" data-venue-id="1" data-tournament-id="10192" data-venue-lat="13.062" data-venue-lng="80.279">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 50, </strong> M. A. Chidambaram Stadium, Chennai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match50">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Thursday 2nd May 2019</h3>
+                    <div class="js-match match-list__item fixture MISRH" data-match-id="11342" data-timestamp="2019-05-02T20:00:00+0530" data-team-ids="6,62" data-venue-id="4" data-tournament-id="10192" data-venue-lat="18.938" data-venue-lng="72.825">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 51, </strong> Wankhede Stadium, Mumbai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match51">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Friday 3rd May 2019</h3>
+                    <div class="js-match match-list__item fixture KXIPKKR" data-match-id="11343" data-timestamp="2019-05-03T20:00:00+0530" data-team-ids="4,5" data-venue-id="9" data-tournament-id="10192" data-venue-lat="30.69" data-venue-lng="76.737">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 52, </strong> IS Bindra Stadium, Mohali</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match52">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Saturday 4th May 2019</h3>
+                    <div class="js-match match-list__item fixture DCRR" data-match-id="11344" data-timestamp="2019-05-04T16:00:00+0530" data-team-ids="3,8" data-venue-id="8" data-tournament-id="10192" data-venue-lat="28.637" data-venue-lng="77.243">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x DC"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo DC"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DC DC"></div>
+                                <p class="fixture__team-name">Delhi Capitals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">DC</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                                <p class="fixture__team-name">Rajasthan Royals</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 53, </strong> Feroz Shah Kotla Ground, Delhi</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match53">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture RCBSRH" data-match-id="11345" data-timestamp="2019-05-04T20:00:00+0530" data-team-ids="9,62" data-venue-id="5" data-tournament-id="10192" data-venue-lat="12.978" data-venue-lng="77.599">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                                <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">RCB</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                                <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">SRH</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 54, </strong> M. Chinnaswamy Stadium, Bengaluru</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match54">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <h3 class="match-list__date js-date">Sunday 5th May 2019</h3>
+                    <div class="js-match match-list__item fixture KXIPCSK" data-match-id="11346" data-timestamp="2019-05-05T16:00:00+0530" data-team-ids="4,1" data-venue-id="9" data-tournament-id="10192" data-venue-lat="30.69" data-venue-lng="76.737">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                                <p class="fixture__team-name">Kings XI Punjab</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KXIP</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">CSK</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">16:00 IST (10:30 GMT)</strong><span><strong>Match 55, </strong> IS Bindra Stadium, Mohali</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match55">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="js-match match-list__item fixture MIKKR" data-match-id="11347" data-timestamp="2019-05-05T20:00:00+0530" data-team-ids="6,5" data-venue-id="4" data-tournament-id="10192" data-venue-lat="18.938" data-venue-lng="72.825">
+                        <div class="fixture__team-logos">
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            </div>
+                            <div class="fixture__versus">v</div>
+                            <div class="fixture__team-logo">
+                                <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            </div>
+                        </div>
+                        <div class="fixture__teams">
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                <p class="fixture__team-name">Mumbai Indians</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">MI</p>
+                            </div>
+                            <div class="fixture__team"><i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                                <p class="fixture__team-name">Kolkata Knight Riders</p>
+                                <p class="fixture__team-name fixture__team-name--abbrv">KKR</p>
+                            </div>
+                        </div>
+                        <div class="fixture__info"><strong class="fixture__time">20:00 IST (14:30 GMT)</strong><span><strong>Match 56, </strong> Wankhede Stadium, Mumbai</span></div>
+                        <div class="fixture__weather fixture-weather">
+                            <div class="fixture-weather__button fixture-weather__button--empty"></div>
+                        </div>
+                        <div class="fixture__links">
+                            <ul class="inline-list fixture__btn-list">
+                                <li class="u-margin u-no-margin-phablet">
+                                    <div class="fixture__button btn btn--inactive">Tickets</div>
+                                </li>
+                                <li class="u-margin u-no-margin-phablet"><a class="fixture__button fixture__button--mc btn" href="vote.html?match=match56">Vote Now!</a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+                <p class="js-message message u-hide u-text-center">There are no matches for the selected filter.</p>
+            </div>
+        </div>
+    </div>
+    <div class="main-container" id="predictionContainer" style="display: none;">
+        <div class="outer-container">
+            <div class="inner-container">
+                <div class="table-header">
+                    <table id="headertable">
+                        <thead>
+                            <tr>
+                                <th class="header-cell col2 match-col">Match</th>
+                                <td class="header-cell col2">Abhishek <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Akhilesh <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Arjun <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Crisden <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Jenil <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Ishwari <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Ketaki <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Ketan <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Kishan <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Mangesh <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Manish <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Mayur <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Mehak <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Nandkishor <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Ninisha <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Nitish <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Omkar <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Priti <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Rahul <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Rajesh <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Ramesh <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Reema <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Reshal <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Roshan <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Rutuja <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Sagar <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Shrikrishna <span class="total-score">-2</span></td>
+                                <td class="header-cell col2">Sujit <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Sumit <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Sushil <span class="total-score">5</span></td>
+                                <td class="header-cell col2">Zabeen <span class="total-score">5</span></td>
+                            </tr>
+                        </thead>
+                    </table>
+                </div>
+                <div class="table-body">
+                    <table id="bodytable">
+                        <tbody>
+                            <tr id="match1" class="">
+                                <th class="match-col">
+                                    <div class="fixture__teams">
+                                        <span class="ratio1">21</span>
+                                        <span class="ratio2">07</span>
+                                        <div class="fixture__teams margintop50">
+                                            <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                                                <p class="fixture__team-name">Mumbai Indians</p>
+                                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                                <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                            </div>
+                                            <div class="fixture__versus">v</div>
+                                            <div class="fixture__team">
+                                                <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                                <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                                                <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                                                <p class="fixture__team-name">Chennai Super Kings</p>
+                                            </div>
+                                        </div>
+                                        <p class="fixture__info">
+                                            Match 1, 20:00 IST (14:30 GMT), Wankhede Stadium, Mumbai
+                                        </p>
+                                    </div>
+                                </th>
+                                <td class="prediction_col abhishek patade">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly CSK">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col akhilesh singh">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly CSK">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col arjun gupta">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col crisden">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col jenil">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col ishwari">NA</td>
+                                <td class="prediction_col ketki">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col ketanm">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col kishan">NA</td>
+                                <td class="prediction_col mangesh jangam">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">50</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col manish shetty">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">70</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col mayur dawda">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col mehak">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col nandkishore">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col ninisha">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">10</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col nitish pakhare">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">20</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col omkar rawool">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly CSK">50</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col priti mandava">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly CSK">80</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col rahul dingal">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col rajesh shinde">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly CSK">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col ramesh mahajan">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col reema shah ">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col reshal">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col roshan n">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly CSK">10</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col rutuja bhopat">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly CSK">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col sagar">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col srikrishna">NA</td>
+                                <td class="prediction_col sujit baghel">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col sumit">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col sushil">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                                <td class="prediction_col zabeen">
+                                    <div class="fixture__teams">
+                                        <div class="fixture__team"><span class="googly">100</span>
+                                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                                        </div>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="main-container" id="leaderboardContainer" style="display: none;">
+        <div class="app-container">
+            <div class="column-container">
+                <h2>Check where you stand after each match.</h2> Select Match:
+                <select id="matchSelect">
+                    <option value="">Select</option>
+                </select>
+                <br />
+                <div class="leader-board">
+                    <table id="leaderBoard">
+                        <thead>
+                            <tr>
+                                <td>#</td>
+                                <td>Name</td>
+                                <td>Score</td>
+                            </tr>
+                        </thead>
+                        <tbody class="scrollable mCustomScrollbar">
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            <!-- <div class="column-container">
+                <div class="section_2">
+                    <div class="face_1"><img src="img/saurabh.png" alt="123" /></div>
+                    <div class="winner_2 boy1"></div>
+                    <div class="face_2"><img src="img/sagar.png" alt="130" /></div>
+                    <div class="winner_1 boy2"></div>
+                    <div class="face_3"><img src="img/ramesh.png" alt="121" /></div>
+                    <div class="winner_3 boy2"></div>
+                    <div class="standing_board"></div>
+                </div>
+                <div class="survivors_section">
+                    <h2>Survivors</h2>
+                    <div class="survivor-container">
+                        <div class="survivor1"><img src="img/kishan.png" title="25" /></div>
+                        <div class="survivor2"><img src="img/zabeen.png" title="25" /></div>
+                        <div class="survivor3"><img src="img/manasa.png" title="25" /></div>
+                    </div>
+                </div>
+            </div>
+            <div class="column-container">
+                <div class="weekend_status_image"></div>
+                <div class="weekend_bash">Weekend Bash!</div>
+                <div class="weekend_status">
+                    <p><span>1<sup>st</sup></span> Weekend: Basavprasad</p>
+                    <p><span>2<sup>nd</sup></span> Weekend: <span class="noWinner">No Winner</span></p>
+                    <p><span>3<sup>rd</sup></span> Weekend: <span class="noWinner">No Winner</span></p>
+                    <p><span>4<sup>th</sup></span> Weekend: Manish & Yogita </p>
+                    <p><span>5<sup>th</sup></span> Weekend: <span class="noWinner">No Winner</span></p>
+                    <p><span>6<sup>th</sup></span> Weekend: Nandkishor, Rahul & Reema</p>
+                </div>
+            </div> -->
+            <div class="clear"></div>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <!-- CloudFlare CDN mousewheel plugin with fallback to local -->
+    <!--  <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.min.js"></script>
+    <script>
+    $.event.special.mousewheel || document.write('<script src="../js/minified/jquery.mousewheel.min.js"><\/script>')
+    </script>
+    custom scrollbar plugin (latest version) via Github with fallback to local
+    <script src="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.js"></script>
+    <script>
+    window.mCustomScrollbar || document.write('<script src="../js/minified/jquery.mCustomScrollbar.min.js"><\/script>')
+    </script> -->
+</body>
+
+</html>

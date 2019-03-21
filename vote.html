@@ -1,0 +1,94 @@
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CI IPL Prediction League</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+    <script>
+    	$(document).ready(function() {
+	    	var getUrlParameter = function getUrlParameter(sParam) {
+			    var sPageURL = decodeURIComponent(window.location.search.substring(1)),
+			        sURLVariables = sPageURL.split('&'),
+			        sParameterName,
+			        i;
+
+			    for (i = 0; i < sURLVariables.length; i++) {
+			        sParameterName = sURLVariables[i].split('=');
+
+			        if (sParameterName[0] === sParam) {
+			            return sParameterName[1] === undefined ? true : sParameterName[1];
+			        }
+			    }
+			};
+	    	var formList = {
+	    		"match1": "https://docs.google.com/forms/d/e/1FAIpQLSeKQuBeeMKHZgJQIvvG8Qs3_13z28HZ8lbuakpX4ehvNskjSw/viewform?embedded=true",
+	    		"match2": "https://docs.google.com/forms/d/e/1FAIpQLSe3zdBvVp65mZ-cctXQ6KkGf8X3iEtsvvrcH92F6o4wq3z7Ng/viewform?embedded=true",
+	    		"match3": "https://docs.google.com/forms/d/e/1FAIpQLSeS5b_-lqgnD5SJPQcg7dXY0yNKJ0wVPgftKEFwZIV_0ES19A/viewform?embedded=true",
+	    		"match4": "https://docs.google.com/forms/d/e/1FAIpQLSfd4K9E_poGYuDamJabPThwOiRkzHg-Sbm-D9sobOm_fIZeoQ/viewform?embedded=true",
+	    		"match5": "https://docs.google.com/forms/d/e/1FAIpQLSfsLcnyZknxJvO3JUxkpXU90FbvpiDawzS8uPL9sBd-bk4yxw/viewform?embedded=true",
+	    		"match6": "https://docs.google.com/forms/d/e/1FAIpQLSfvPIlQS7nNeUDWz1T9f7IRz_PgtQ7zFKIyoBwD7NjDz9LL5g/viewform?embedded=true",
+	    		"match7": "",
+	    		"match8": "https://docs.google.com/forms/d/e/1FAIpQLSeCUG7dIGKWtnD0bZQHA52XQkcCQG_VOTFNpoAceQAT3CHndA/viewform?embedded=true",
+	    		"match9": "https://docs.google.com/forms/d/e/1FAIpQLSdXeVKdCBjnDYnuT0b_OSA6_nWyQkdAcg5ASh5xzD1dPHVEpA/viewform?embedded=true",
+	    		"match10": "https://docs.google.com/forms/d/e/1FAIpQLSfRzKP5Zncck_uvEENULjy4XEYcptVMFMivEDneVA0hIByztg/viewform?embedded=true",
+	    		"match11": "https://docs.google.com/forms/d/e/1FAIpQLSf74MXRBC2MQDU_taGWhNSInf6yiLWyz-Q3HugIo54bfjCE1A/viewform?embedded=true",
+	    		"match12": "https://docs.google.com/forms/d/e/1FAIpQLSfcfyjKItfK7w0Xw2ozcK9IvGI7TzRJCr8Z8YC7uVylNP8f0A/viewform?embedded=true",
+	    		"match13": "https://docs.google.com/forms/d/e/1FAIpQLSc-208iGPcckcGQqfQiv5e-draObsc_teuVV6ITE_5eHRjkwg/viewform?embedded=true",
+	    		"match14": "https://docs.google.com/forms/d/e/1FAIpQLSehuHZl_TeYwociaHOTFn782PAEcCn056zQWX-kiTNUJpLStQ/viewform?embedded=true",
+	    		"match15": "https://docs.google.com/forms/d/e/1FAIpQLSewBXVc-nzj3aPQGtg-O1V95alicp6MmCJViMLPYhrMzuPtIw/viewform?embedded=true",
+	    		"match16": "https://docs.google.com/forms/d/e/1FAIpQLSeFJu3FCSoc3ywJjpFHzAgI_HozQgwPtJR-Xwb7D8TBevWXjQ/viewform?embedded=true",
+	    		"match17": "https://docs.google.com/forms/d/e/1FAIpQLSdJcfMUQUAA0VyiMA_XIjzCkIeY66LMT-wATl_VI9EozKhCjQ/viewform?embedded=true",
+	    		"match18": "https://docs.google.com/forms/d/e/1FAIpQLSc_jyli3syclBsEjshrvqMxkNEuoYxRKvmGiMpeCjTo7shydQ/viewform?embedded=true",
+	    		"match19": "https://docs.google.com/forms/d/e/1FAIpQLSfO17fH7WpTAv8O9ltZhSxpHpe8x7tqFpaO1WUsYfx1y5mWSA/viewform?embedded=true",
+	    		"match20": "https://docs.google.com/forms/d/e/1FAIpQLSdMWcTUZCIbYeBVTdwjJd4tGB0js5sQaxeEn_HmGvkksGMWlw/viewform?embedded=true",
+	    		"match21": "https://docs.google.com/forms/d/e/1FAIpQLScDZ1_RveCXhHfNvtvpJCSelXUDYjehHbUuo2LhDfWHqJ5q6A/viewform?embedded=true",
+	    		"match22": "https://docs.google.com/forms/d/e/1FAIpQLSdEnnJrNzMQiiwjg9izJ2mn5OJ20B-TLoBdzQR2D9XEQa4pbA/viewform?embedded=true",
+	    		"match23": "https://docs.google.com/forms/d/e/1FAIpQLSfBhI9FwR8Qh810u4WI3tzbcrC3tEqEaq8glWIB1POXDbC6Og/viewform?embedded=true",
+	    		"match24": "https://docs.google.com/forms/d/e/1FAIpQLSdBl-6D3cb3B3euxVBh1jfE_fYomZ9rbKDjj6EMXmEVBaYIBA/viewform?embedded=true",
+	    		"match25": "https://docs.google.com/forms/d/e/1FAIpQLSdDPpJXtfdYPrSyIcOhT2ZEXHZ6n_sqcMtNacBQPQ1DQwuh0w/viewform?embedded=true",
+	    		"matchTOP4": "https://docs.google.com/forms/d/e/1FAIpQLSdFwcL9oLmF06L1AKdPc3y7bjaL09eyBRWDY_widS3Qe1ZGyw/viewform?embedded=true",
+	    		"match26": "https://docs.google.com/forms/d/e/1FAIpQLSd0WdVpbvA4zCO7jybcfncnQKMToXch1XB0LXgZhiHaWWPcTA/viewform?embedded=true",
+	    		"match27": "https://docs.google.com/forms/d/e/1FAIpQLSdCwCtsWWNEFSZm8LTGbuUslo0A6mlMV76nZwnfi3wbCEj3bw/viewform?embedded=true",
+	    		"match28": "https://docs.google.com/forms/d/e/1FAIpQLScRMDqd3_TPr49aWwqbbL4w1xh5TT0uPkCodLpVNt2fP4IJjA/viewform?embedded=true",
+	    		"match29": "https://docs.google.com/forms/d/e/1FAIpQLSflrrBJd0UkJ5Wr7lyAe_TiOQ0kWgDs51HDm1dXODFcuC7rrw/viewform?embedded=true",
+	    		"match30": "https://docs.google.com/forms/d/e/1FAIpQLSf_w5wkcjQG2f4p1qRpvti5jm8uUem3emydwaR0m2SrcOvU8A/viewform?embedded=true",
+	    		"match31": "https://docs.google.com/forms/d/e/1FAIpQLSf0dhI4zE9AHaBFXrJXQ0VLw_wFak7IA5tU1t8ArbyfOHFGxw/viewform?embedded=true",
+	    		"match32": "https://docs.google.com/forms/d/e/1FAIpQLSeLAxA_9Jub6BEZFLgQa2FxHmGhW89EL_H5VEoQVbxOeRLZpQ/viewform?embedded=true",
+	    		"match33": "https://docs.google.com/forms/d/e/1FAIpQLSdUGBMPiB_v5SMS51gCtnxFSAEtew4zguFbrJn7fXBoOg4FYg/viewform?embedded=true",
+	    		"match34": "https://docs.google.com/forms/d/e/1FAIpQLSe5GHIBh9h8p8mgrETUM-Ty14lL032AelmuSBuvSy59pYyA_w/viewform?embedded=true",
+	    		"match35": "https://docs.google.com/forms/d/e/1FAIpQLSd8ihPg9mHL56BNEPXJ0R9h5gtolG61-j48QkzY-SryF9gyBQ/viewform?embedded=true",
+	    		"match36": "https://docs.google.com/forms/d/e/1FAIpQLSfW3n7xc1_QEAXEyL8EJdCeMoDi8SOtE_Sg7UNQJf63FVezwA/viewform?embedded=true",
+	    		"match37": "https://docs.google.com/forms/d/e/1FAIpQLScktRMvrGG45rEWwDwcnvoUIrq0UOM3Mag1LHIPrBFcX6dIoQ/viewform?embedded=true",
+	    		"match38": "https://docs.google.com/forms/d/e/1FAIpQLSen7cdRIJw-yaPqPg-SneJrx7sIQ-SZ6vyQPGOPt-Au0juhjQ/viewform?embedded=true",
+	    		"match39": "",
+	    		"match40": "",
+	    		"match41": "",
+	    		"match42": "",
+	    		"match43": "",
+	    		"match44": "",
+	    		"match45": "",
+	    		"match46": "",
+	    		"match47": "",
+	    		"match48": "",
+	    		"match49": "",
+	    		"match50": "",
+	    		"match51": "",
+	    		"match52": "",
+	    		"match53": "",
+	    		"match54": "",
+	    		"match55": "",
+	    		"match56": ""
+	    	}
+	    	var match = getUrlParameter('match');
+	    	var matchForm = formList[match];
+	    	$("#matchFormEmbed").attr("src",matchForm);    		
+    	});
+    </script>
+</head>
+
+<body>
+  <iframe id="matchFormEmbed" width="100%" height="1400" frameborder="0" marginheight="0" marginwidth="0">Loading...</iframe>
+</body>
+
+</html>

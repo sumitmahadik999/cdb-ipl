@@ -1,0 +1,1999 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CI IPL Prediction League</title>
+    <link type="text/css" href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+    <link rel="stylesheet" href="css/new-look.css">
+    <style>
+    * {
+        padding: 0;
+        margin: 0;
+    }
+
+    body {
+        height: 100%;
+        width: 100%;
+    }
+
+    table {
+        border-collapse: collapse;
+    }
+
+    .outer-container {
+        background-color: #ccc;
+        position: absolute;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 10px;
+    }
+
+    .inner-container {
+        height: 100%;
+        overflow: hidden;
+        background: #263973;
+        /*min-height: 600px;*/
+    }
+
+    .table-header {
+        position: relative;
+    }
+
+    .table-body {
+        overflow: auto;
+    }
+
+    .match-col,
+    .prediction_col {
+        text-align: left;
+    }
+
+    .prediction_col {
+        min-width: 130px;
+    }
+
+    .header-cell,
+    th.header-cell {
+        background: #263973;
+        padding: 1rem 0 1rem;
+        text-align: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        color: #fff;
+    }
+
+    .col2 {
+        min-width: 130px;
+    }
+
+    .match-col {
+        min-width: 525px;
+    }
+
+    #bodytable tbody tr.even th,
+    #bodytable tbody tr.even td {
+        background: #fff;
+    }
+
+    #bodytable tbody tr.odd th,
+    #bodytable tbody tr.odd td {
+        background: azure;
+    }
+
+    .main-container {
+        /*position: relative;*/
+    }
+
+    .button-container {
+        width: 230px;
+        border: 2px solid #fff;
+        border-radius: 4px;
+        position: absolute;
+        margin-top: -50px;
+        margin-left: calc(50% - 108px);
+    }
+
+    .button-container a {
+        color: #fff;
+        font-size: 1.4rem;
+        padding: 5px 0;
+        width: 110px;
+        display: inline-block;
+        text-align: center;
+        font-weight: 700;
+    }
+
+    .button-container a.active {
+        background: #fff;
+        color: #263973;
+    }
+
+    .button-container a:last-child {
+        float: right;
+    }
+
+    .fixture__links>.btn:first-child {
+        display: none;
+    }
+    </style>
+</head>
+
+<body>
+    <div class="header">
+        <img src="img/Homepage-Banner-04.jpg" />
+    </div>
+    <div class="app-container">
+        <div class="match-list__list">
+            <div class="js-list">
+                <h3 class="match-list__date js-date"><span class="u-font-light">Saturday</span> 7th April 2018</h3>
+                <div class="js-match match-list__item fixture  MI " data-match-id="7894" data-timestamp="1523111400000" data-team-ids="6,1" data-venue-id="4">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 1</strong>
+                        <span>Wankhede Stadium, Mumbai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/mumbai-indians/mumbai-indians-vs-chennai-super-kings/ET00071927" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/01">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Sunday</span> 8th April 2018</h3>
+                <div class="js-match match-list__item fixture  KXIP " data-match-id="7895" data-timestamp="1523183400000" data-team-ids="4,3" data-venue-id="9">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 2</strong>
+                        <span>IS Bindra Stadium, Mohali</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://paytm.com/events/mohali/cricket/vivo-ipl-2018-kings-xi-punjab-vs-dd/162363?provider_id=76&amp;city_name=mohali&amp;utm_medium=social&amp;utm_source=social&amp;utm_campaign=events_vivoiplkxivsdd_20180326" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/02">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  KKR " data-match-id="7896" data-timestamp="1523197800000" data-team-ids="5,9" data-venue-id="2">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 3</strong>
+                        <span>Eden Gardens, Kolkata</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/kolkata-knight-riders" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/03">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Monday</span> 9th April 2018</h3>
+                <div class="js-match match-list__item fixture  SRH " data-match-id="7897" data-timestamp="1523284200000" data-team-ids="62,8" data-venue-id="10">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 4</strong>
+                        <span>Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/04">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Tuesday</span> 10th April 2018</h3>
+                <div class="js-match match-list__item fixture  CSK " data-match-id="7898" data-timestamp="1523370600000" data-team-ids="1,5" data-venue-id="1">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 5</strong>
+                        <span>M. A. Chidambaram Stadium, Chennai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/05">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Wednesday</span> 11th April 2018</h3>
+                <div class="js-match match-list__item fixture  RR " data-match-id="7899" data-timestamp="1523457000000" data-team-ids="8,3" data-venue-id="3">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 6</strong>
+                        <span>Sawai Mansingh Stadium, Jaipur</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/rajasthan-royals?utm_source=rajasthanroyals.com&amp;utm_medium=referral&amp;utm_campaign=RR2018" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/06">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Thursday</span> 12th April 2018</h3>
+                <div class="js-match match-list__item fixture  SRH " data-match-id="7900" data-timestamp="1523543400000" data-team-ids="62,6" data-venue-id="10">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 7</strong>
+                        <span>Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/07">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Friday</span> 13th April 2018</h3>
+                <div class="js-match match-list__item fixture  RCB " data-match-id="7901" data-timestamp="1523629800000" data-team-ids="9,4" data-venue-id="5">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 8</strong>
+                        <span>M. Chinnaswamy Stadium, Bengaluru</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="http://rcbtickets.liveinstyle.com/book-tickets?match=7136653-70689318908-cat&amp;utm_source=rcb-kxip-13-apr&amp;utm_medium=bcci-2018&amp;utm_campaign=ipl-rcb-2018" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/08">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Saturday</span> 14th April 2018</h3>
+                <div class="js-match match-list__item fixture  MI " data-match-id="7902" data-timestamp="1523701800000" data-team-ids="6,3" data-venue-id="4">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 9</strong>
+                        <span>Wankhede Stadium, Mumbai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/09">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  KKR " data-match-id="7903" data-timestamp="1523716200000" data-team-ids="5,62" data-venue-id="2">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 10</strong>
+                        <span>Eden Gardens, Kolkata</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/kolkata-knight-riders" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/10">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Sunday</span> 15th April 2018</h3>
+                <div class="js-match match-list__item fixture  RCB " data-match-id="7904" data-timestamp="1523788200000" data-team-ids="9,8" data-venue-id="5">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 11</strong>
+                        <span>M. Chinnaswamy Stadium, Bengaluru</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="http://rcbtickets.liveinstyle.com/book-tickets?match=7136653-76115269575-cat&amp;utm_source=rcb-rr-15-apr&amp;utm_medium=button&amp;utm_campaign=ipl-rcb-2018" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/11">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  KXIP " data-match-id="7905" data-timestamp="1523802600000" data-team-ids="4,1" data-venue-id="9">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 12</strong>
+                        <span>IS Bindra Stadium, Mohali</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://paytm.com/events/mohali/cricket/vivo-ipl-2018-kings-xi-punjab-vs-chennai-super-kings/162773?refreshed=1?provider_id=76&amp;city_name=mohali&amp;utm_medium=social&amp;utm_source=social&amp;utm_campaign=events_kxipvscsk_20180327" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/12">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Monday</span> 16th April 2018</h3>
+                <div class="js-match match-list__item fixture  KKR " data-match-id="7906" data-timestamp="1523889000000" data-team-ids="5,3" data-venue-id="2">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 13</strong>
+                        <span>Eden Gardens, Kolkata</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/kolkata-knight-riders" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/13">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Tuesday</span> 17th April 2018</h3>
+                <div class="js-match match-list__item fixture  MI " data-match-id="7907" data-timestamp="1523975400000" data-team-ids="6,9" data-venue-id="4">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 14</strong>
+                        <span>Wankhede Stadium, Mumbai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/mumbai-indians/mumbai-indians-vs-royal-challengers-bangalore/ET00071929" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/14">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Wednesday</span> 18th April 2018</h3>
+                <div class="js-match match-list__item fixture  RR " data-match-id="7908" data-timestamp="1524061800000" data-team-ids="8,5" data-venue-id="3">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 15</strong>
+                        <span>Sawai Mansingh Stadium, Jaipur</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/rajasthan-royals?utm_source=rajasthanroyals.com&amp;utm_medium=referral&amp;utm_campaign=RR2018" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/15">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Thursday</span> 19th April 2018</h3>
+                <div class="js-match match-list__item fixture  KXIP " data-match-id="7909" data-timestamp="1524148200000" data-team-ids="4,62" data-venue-id="9">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 16</strong>
+                        <span>IS Bindra Stadium, Mohali</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://paytm.com/events/mohali/cricket/vivo-ipl-2018-kings-xi-punjab-vs-sunrisers-hyderabad/162772?refreshed=1?provider_id=76&amp;city_name=mohali&amp;utm_medium=social&amp;utm_source=social&amp;utm_campaign=events_kxipvssrh_20180327" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/16">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Friday</span> 20th April 2018</h3>
+                <div class="js-match match-list__item fixture  CSK " data-match-id="7910" data-timestamp="1524234600000" data-team-ids="1,8" data-venue-id="1">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 17</strong>
+                        <span>M. A. Chidambaram Stadium, Chennai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/17">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Saturday</span> 21st April 2018</h3>
+                <div class="js-match match-list__item fixture  KKR " data-match-id="7911" data-timestamp="1524306600000" data-team-ids="5,4" data-venue-id="2">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 18</strong>
+                        <span>Eden Gardens, Kolkata</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/kolkata-knight-riders" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/18">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  RCB " data-match-id="7912" data-timestamp="1524321000000" data-team-ids="9,3" data-venue-id="5">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 19</strong>
+                        <span>M. Chinnaswamy Stadium, Bengaluru</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="http://rcbtickets.liveinstyle.com/book-tickets?match=7136653-57757862705-cat&amp;utm_source=rcb-dd-21-april&amp;utm_medium= bcci-2018&amp;utm_campaign=ipl-rcb-2018" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/19">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Sunday</span> 22nd April 2018</h3>
+                <div class="js-match match-list__item fixture  SRH " data-match-id="7913" data-timestamp="1524393000000" data-team-ids="62,1" data-venue-id="10">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 20</strong>
+                        <span>Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/20">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  RR " data-match-id="7914" data-timestamp="1524407400000" data-team-ids="8,6" data-venue-id="3">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 21</strong>
+                        <span>Sawai Mansingh Stadium, Jaipur</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/21">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Monday</span> 23rd April 2018</h3>
+                <div class="js-match match-list__item fixture  DD " data-match-id="7915" data-timestamp="1524493800000" data-team-ids="3,4" data-venue-id="8">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 22</strong>
+                        <span>Feroz Shah Kotla Ground, Delhi</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://paytm.com/events/delhi/entertainment/vivo-ipl-2018-match-22-dd-vs-kings-xi-punjab/161916?refreshed=1?provider_id=76&amp;city_name=delhi&amp;utm_medium=social&amp;utm_source=social&amp;utm_campaign=events_ddvskxip_20180323" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/22">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Tuesday</span> 24th April 2018</h3>
+                <div class="js-match match-list__item fixture  MI " data-match-id="7916" data-timestamp="1524580200000" data-team-ids="6,62" data-venue-id="4">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 23</strong>
+                        <span>Wankhede Stadium, Mumbai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/mumbai-indians/mumbai-indians-vs-sunrisers-hyderabad/ET00071930" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/23">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Wednesday</span> 25th April 2018</h3>
+                <div class="js-match match-list__item fixture  RCB " data-match-id="7917" data-timestamp="1524666600000" data-team-ids="9,1" data-venue-id="5">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 24</strong>
+                        <span>M. Chinnaswamy Stadium, Bengaluru</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="http://rcbtickets.liveinstyle.com/book-tickets?match=7136653-45047484025-cat&amp;utm_source=rcb-csk-25-apr&amp;utm_medium=button&amp;utm_campaign=ipl-rcb-2018" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/24">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Thursday</span> 26th April 2018</h3>
+                <div class="js-match match-list__item fixture  SRH " data-match-id="7918" data-timestamp="1524753000000" data-team-ids="62,4" data-venue-id="10">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 25</strong>
+                        <span>Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/25">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Friday</span> 27th April 2018</h3>
+                <div class="js-match match-list__item fixture  DD " data-match-id="7919" data-timestamp="1524839400000" data-team-ids="3,5" data-venue-id="8">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 26</strong>
+                        <span>Feroz Shah Kotla Ground, Delhi</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://paytm.com/events/delhi/entertainment/vivo-ipl-2018-dd-vs-kolkata-knight-riders/162257?refreshed=1?provider_id=76&amp;city_name=delhi&amp;utm_medium=social&amp;utm_source=social&amp;utm_campaign=events_ddvskkr_20180323" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/26">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Saturday</span> 28th April 2018</h3>
+                <div class="js-match match-list__item fixture  CSK " data-match-id="7920" data-timestamp="1524925800000" data-team-ids="1,6" data-venue-id="1">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 27</strong>
+                        <span>M. A. Chidambaram Stadium, Chennai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/27">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Sunday</span> 29th April 2018</h3>
+                <div class="js-match match-list__item fixture  RR " data-match-id="7921" data-timestamp="1524997800000" data-team-ids="8,62" data-venue-id="3">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 28</strong>
+                        <span>Sawai Mansingh Stadium, Jaipur</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/28">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  RCB " data-match-id="7922" data-timestamp="1525012200000" data-team-ids="9,5" data-venue-id="5">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 29</strong>
+                        <span>M. Chinnaswamy Stadium, Bengaluru</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="http://rcbtickets.liveinstyle.com/book-tickets?match=7136653-33613824968-cat&amp;utm_source=rcb-kkr-29-apr&amp;utm_medium=button&amp;utm_campaign=ipl-rcb-2018" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/29">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Monday</span> 30th April 2018</h3>
+                <div class="js-match match-list__item fixture  CSK " data-match-id="7923" data-timestamp="1525098600000" data-team-ids="1,3" data-venue-id="1">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 30</strong>
+                        <span>M. A. Chidambaram Stadium, Chennai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/30">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Tuesday</span> 1st May 2018</h3>
+                <div class="js-match match-list__item fixture  RCB " data-match-id="7924" data-timestamp="1525185000000" data-team-ids="9,6" data-venue-id="5">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 31</strong>
+                        <span>M. Chinnaswamy Stadium, Bengaluru</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="http://rcbtickets.liveinstyle.com/book-tickets?match=7136653-43188037128-cat&amp;utm_source=rcb-mi-01-may&amp;utm_medium=button&amp;utm_campaign=ipl-rcb-2018" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/31">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Wednesday</span> 2nd May 2018</h3>
+                <div class="js-match match-list__item fixture  DD " data-match-id="7925" data-timestamp="1525271400000" data-team-ids="3,8" data-venue-id="8">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 32</strong>
+                        <span>Feroz Shah Kotla Ground, Delhi</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/32">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Thursday</span> 3rd May 2018</h3>
+                <div class="js-match match-list__item fixture  KKR " data-match-id="7926" data-timestamp="1525357800000" data-team-ids="5,1" data-venue-id="2">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 33</strong>
+                        <span>Eden Gardens, Kolkata</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/kolkata-knight-riders" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/33">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Friday</span> 4th May 2018</h3>
+                <div class="js-match match-list__item fixture  KXIP " data-match-id="7927" data-timestamp="1525444200000" data-team-ids="4,6" data-venue-id="17">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 34</strong>
+                        <span>Holkar Cricket Stadium, Indore</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/34">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Saturday</span> 5th May 2018</h3>
+                <div class="js-match match-list__item fixture  CSK " data-match-id="7928" data-timestamp="1525516200000" data-team-ids="1,9" data-venue-id="1">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 35</strong>
+                        <span>M. A. Chidambaram Stadium, Chennai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/35">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  SRH " data-match-id="7929" data-timestamp="1525530600000" data-team-ids="62,3" data-venue-id="10">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 36</strong>
+                        <span>Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/36">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Sunday</span> 6th May 2018</h3>
+                <div class="js-match match-list__item fixture  MI " data-match-id="7930" data-timestamp="1525602600000" data-team-ids="6,5" data-venue-id="4">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 37</strong>
+                        <span>Wankhede Stadium, Mumbai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/mumbai-indians/mumbai-indians-vs-kolkata-knight-riders/ET00071932" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/37">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  KXIP " data-match-id="7931" data-timestamp="1525617000000" data-team-ids="4,8" data-venue-id="17">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 38</strong>
+                        <span>Holkar Cricket Stadium, Indore</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/38">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Monday</span> 7th May 2018</h3>
+                <div class="js-match match-list__item fixture  SRH " data-match-id="7932" data-timestamp="1525703400000" data-team-ids="62,9" data-venue-id="10">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 39</strong>
+                        <span>Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/39">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Tuesday</span> 8th May 2018</h3>
+                <div class="js-match match-list__item fixture  RR " data-match-id="7933" data-timestamp="1525789800000" data-team-ids="8,4" data-venue-id="3">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 40</strong>
+                        <span>Sawai Mansingh Stadium, Jaipur</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/40">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Wednesday</span> 9th May 2018</h3>
+                <div class="js-match match-list__item fixture  KKR " data-match-id="7934" data-timestamp="1525876200000" data-team-ids="5,6" data-venue-id="2">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 41</strong>
+                        <span>Eden Gardens, Kolkata</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/kolkata-knight-riders" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/41">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Thursday</span> 10th May 2018</h3>
+                <div class="js-match match-list__item fixture  DD " data-match-id="7935" data-timestamp="1525962600000" data-team-ids="3,62" data-venue-id="8">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 42</strong>
+                        <span>Feroz Shah Kotla Ground, Delhi</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/42">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Friday</span> 11th May 2018</h3>
+                <div class="js-match match-list__item fixture  RR " data-match-id="7936" data-timestamp="1526049000000" data-team-ids="8,1" data-venue-id="3">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 43</strong>
+                        <span>Sawai Mansingh Stadium, Jaipur</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/43">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Saturday</span> 12th May 2018</h3>
+                <div class="js-match match-list__item fixture  KXIP " data-match-id="7937" data-timestamp="1526121000000" data-team-ids="4,5" data-venue-id="17">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 44</strong>
+                        <span>Holkar Cricket Stadium, Indore</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/44">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  DD " data-match-id="7938" data-timestamp="1526135400000" data-team-ids="3,9" data-venue-id="8">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 45</strong>
+                        <span>Feroz Shah Kotla Ground, Delhi</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://www.liveinstyle.com/ipl-2018/book-rcb-tickets?utm_source=bcci-2018&amp;utm_medium=text&amp;utm_campaign=ipl-rcb-2018-bcci" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/45">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Sunday</span> 13th May 2018</h3>
+                <div class="js-match match-list__item fixture  CSK " data-match-id="7939" data-timestamp="1526207400000" data-team-ids="1,62" data-venue-id="1">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 46</strong>
+                        <span>M. A. Chidambaram Stadium, Chennai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/46">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  MI " data-match-id="7940" data-timestamp="1526221800000" data-team-ids="6,8" data-venue-id="4">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 47</strong>
+                        <span>Wankhede Stadium, Mumbai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/mumbai-indians/mumbai-indians-vs-rajasthan-royals/ET00071933" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/47">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Monday</span> 14th May 2018</h3>
+                <div class="js-match match-list__item fixture  KXIP " data-match-id="7941" data-timestamp="1526308200000" data-team-ids="4,9" data-venue-id="17">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 48</strong>
+                        <span>Holkar Cricket Stadium, Indore</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/48">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Tuesday</span> 15th May 2018</h3>
+                <div class="js-match match-list__item fixture  KKR " data-match-id="7942" data-timestamp="1526394600000" data-team-ids="5,8" data-venue-id="2">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 49</strong>
+                        <span>Eden Gardens, Kolkata</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/kolkata-knight-riders" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/49">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Wednesday</span> 16th May 2018</h3>
+                <div class="js-match match-list__item fixture  MI " data-match-id="7943" data-timestamp="1526481000000" data-team-ids="6,4" data-venue-id="4">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 50</strong>
+                        <span>Wankhede Stadium, Mumbai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="https://in.bookmyshow.com/sports/t20-premier-league/mumbai-indians/mumbai-indians-vs-kings-xi-punjab/ET00071935" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/50">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Thursday</span> 17th May 2018</h3>
+                <div class="js-match match-list__item fixture  RCB " data-match-id="7944" data-timestamp="1526567400000" data-team-ids="9,62" data-venue-id="5">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 51</strong>
+                        <span>M. Chinnaswamy Stadium, Bengaluru</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet"><a class="fixture__button btn" href="http://rcbtickets.liveinstyle.com/book-tickets?match=7136653-32805010016-cat&amp;utm_source=rcb-sh-17-may&amp;utm_medium=button&amp;utm_campaign=ipl-rcb-2018" target="_blank" rel="noopener">Tickets <span class="icn-external-link-white"></span></a></li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/51">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Friday</span> 18th May 2018</h3>
+                <div class="js-match match-list__item fixture  DD " data-match-id="7945" data-timestamp="1526653800000" data-team-ids="3,1" data-venue-id="8">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 52</strong>
+                        <span>Feroz Shah Kotla Ground, Delhi</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/52">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Saturday</span> 19th May 2018</h3>
+                <div class="js-match match-list__item fixture  RR " data-match-id="7946" data-timestamp="1526725800000" data-team-ids="8,9" data-venue-id="3">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 53</strong>
+                        <span>Sawai Mansingh Stadium, Jaipur</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo RR"></i>
+                            <p class="fixture__team-name">Rajasthan Royals</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RR RR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RR"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-RCB RCB"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x RCB"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo RCB"></i>
+                            <p class="fixture__team-name">Royal Challengers Bangalore</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/53">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  SRH " data-match-id="7947" data-timestamp="1526740200000" data-team-ids="62,5" data-venue-id="10">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 54</strong>
+                        <span>Rajiv Gandhi Intl. Cricket Stadium, Hyderabad</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo SRH"></i>
+                            <p class="fixture__team-name">Sunrisers Hyderabad</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-SRH SRH"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x SRH"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KKR KKR"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KKR"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KKR"></i>
+                            <p class="fixture__team-name">Kolkata Knight Riders</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/54">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Sunday</span> 20th May 2018</h3>
+                <div class="js-match match-list__item fixture  DD " data-match-id="7948" data-timestamp="1526812200000" data-team-ids="3,6" data-venue-id="8">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">16:00 IST (10:30 GMT)</strong>
+                        <strong>Match 55</strong>
+                        <span>Feroz Shah Kotla Ground, Delhi</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo DD"></i>
+                            <p class="fixture__team-name">Delhi Daredevils</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-DD DD"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x DD"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-MI MI"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x MI"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo MI"></i>
+                            <p class="fixture__team-name">Mumbai Indians</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/55">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="js-match match-list__item fixture  CSK " data-match-id="7949" data-timestamp="1526826600000" data-team-ids="1,4" data-venue-id="1">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Match 56</strong>
+                        <span>M. A. Chidambaram Stadium, Chennai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo CSK"></i>
+                            <p class="fixture__team-name">Chennai Super Kings</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-CSK CSK"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x CSK"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-KXIP KXIP"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x KXIP"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo KXIP"></i>
+                            <p class="fixture__team-name">Kings XI Punjab</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/56">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Tuesday</span> 22nd May 2018</h3>
+                <div class="js-match match-list__item fixture  TBC " data-match-id="7950" data-timestamp="1526999400000" data-team-ids="544,544" data-venue-id="4">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Qualifier 1</strong>
+                        <span>Wankhede Stadium, Mumbai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo TBC"></i>
+                            <p class="fixture__team-name">TBC</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-TBC TBC"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x TBC"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-TBC TBC"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x TBC"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo TBC"></i>
+                            <p class="fixture__team-name">TBC</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/57">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Wednesday</span> 23rd May 2018</h3>
+                <div class="js-match match-list__item fixture  TBC " data-match-id="7951" data-timestamp="1527085800000" data-team-ids="544,544" data-venue-id="7">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Eliminator</strong>
+                        <span>Maharashtra Cricket Association's International Stadium, Pune</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo TBC"></i>
+                            <p class="fixture__team-name">TBC</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-TBC TBC"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x TBC"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-TBC TBC"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x TBC"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo TBC"></i>
+                            <p class="fixture__team-name">TBC</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/58">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Friday</span> 25th May 2018</h3>
+                <div class="js-match match-list__item fixture  TBC " data-match-id="7952" data-timestamp="1527258600000" data-team-ids="544,544" data-venue-id="7">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Qualifier 2</strong>
+                        <span>Maharashtra Cricket Association's International Stadium, Pune</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo TBC"></i>
+                            <p class="fixture__team-name">TBC</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-TBC TBC"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x TBC"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-TBC TBC"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x TBC"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo TBC"></i>
+                            <p class="fixture__team-name">TBC</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/59">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+                <h3 class="match-list__date js-date"><span class="u-font-light">Sunday</span> 27th May 2018</h3>
+                <div class="js-match match-list__item fixture  TBC " data-match-id="7953" data-timestamp="1527431400000" data-team-ids="544,544" data-venue-id="4">
+                    <div class="fixture__info">
+                        <strong class="fixture__time">20:00 IST (14:30 GMT)</strong>
+                        <strong>Final</strong>
+                        <span>Wankhede Stadium, Mumbai</span>
+                    </div>
+                    <div class="fixture__teams">
+                        <div class="fixture__team fixture__team--first"> <i class="tLogo40x32 u-show-phablet fixture__logo TBC"></i>
+                            <p class="fixture__team-name">TBC</p>
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-TBC TBC"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x TBC"></div>
+                        </div>
+                        <div class="fixture__versus">v</div>
+                        <div class="fixture__team">
+                            <div class="u-show-tablet u-hide-phablet fixture__logo tLogo40x t-TBC TBC"></div>
+                            <div class="u-hide-tablet fixture__logo tLogo58x TBC"></div>
+                            <i class="tLogo40x32 u-show-phablet fixture__logo TBC"></i>
+                            <p class="fixture__team-name">TBC</p>
+                        </div>
+                    </div>
+                    <div class="fixture__links">
+                        <ul class="inline-list fixture__btn-list">
+                            <li class="u-margin u-no-margin-phablet">
+                                <div class="fixture__button btn btn--inactive">Tickets</div>
+                            </li>
+                            <li class="u-margin u-no-margin-phablet">
+                                <a class="fixture__button fixture__button--mc btn" href="/match/2018/60">Match Centre</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <p class="js-message message u-hide u-text-center">There are no matches for the selected filter.</p>
+        </div>
+        <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.min.js"></script>
+        <script>
+        $.event.special.mousewheel || document.write('<script src="../js/minified/jquery.mousewheel.min.js"><\/script>')
+        </script>
+        <!-- custom scrollbar plugin (latest version) via Github with fallback to local -->
+        <script src="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <script>
+        window.mCustomScrollbar || document.write('<script src="../js/minified/jquery.mCustomScrollbar.min.js"><\/script>')
+        </script>
+    </div>
+</body>
+
+</html>

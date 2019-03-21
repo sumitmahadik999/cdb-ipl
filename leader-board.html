@@ -1,0 +1,151 @@
+<!doctype html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+    <title>CI IPL Prediction League</title>
+    <link type="text/css" href="css/style.css" rel="stylesheet">
+    <link rel="stylesheet" href="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.css">
+    <!-- <style>
+    th.match-col {
+        position: static;
+        display: block;
+    }
+    .table-container {
+        margin-left: 0;
+        max-height: 500px;
+        overflow: scroll;
+    }
+    </style> -->
+</head>
+
+<body>
+    <div class="header">
+        <img src="img/Homepage-Banner-04.jpg" />
+    </div>
+    <div class="app-container">
+        Select Match:
+        <select id="matchSelect">
+            <option value="">Select</option>
+        </select>
+        <br />
+        <div class="leader-board">
+            <table id="leaderBoard">
+                <thead>
+                    <tr>
+                        <td>#</td>
+                        <td>Name</td>
+                        <td>Score</td>
+                    </tr>
+                </thead>
+                <tbody class="scrollable mCustomScrollbar">
+                </tbody>
+            </table>
+        </div>
+        <script type="text/javascript" src="js/jquery-1.12.0.min.js"></script>
+        <script type="text/javascript">
+        $(document).ready(function() {
+            var seasonData;
+            $.getJSON('js/predictionData.json', function(data) {
+                seasonData = data;
+                var tableMarkup = "";
+                var selectMarkup = "";
+                for (i = 0; i < 34; i++) {
+                    var totalScore = 0;
+                    var playerName = seasonData["match1"][i].val0;
+                    $.each(seasonData, function(key) {
+                        totalScore += seasonData[key][i].val2;
+                    })
+                    var rank = i + 1;
+                    tableMarkup += "<tr><td>" + rank + "</td><td>" + playerName + "</td><td class='sort'>" + totalScore + "</td></tr>"
+                }
+                $.each(seasonData, function(key) {
+                    matchCode = key;
+                    var r = /\d+/;
+                    var str = matchCode;
+                    var x = $.trim(str.match(r).toString());
+                    var str_split = str.split(x);
+                    var arr = [];
+                    $.each(str_split, function(i, val) {
+                        arr.push($.trim(val));
+                        arr.push(x.toString());
+                    });
+                    arr.pop();
+                    var label = arr[0] + " " + arr[1];
+                    selectMarkup += "<option value='" + matchCode + "'>" + label + "</option>"
+                })
+                $("#matchSelect").append(selectMarkup)
+                $("#leaderBoard tbody").html(tableMarkup)
+                sortTable();
+            });
+
+            $("#matchSelect").on("change", function() {
+                var selectedMatch = $(this).val();
+                filterLeaderBoard(selectedMatch, seasonData);
+            });
+
+            function filterLeaderBoard(selectedMatch, seasonData) {
+                var matchCode = selectedMatch;
+                var tableMarkup = "";
+                for (i = 0; i < 34; i++) {
+                    var totalScore = 0;
+                    var playerName = seasonData["match1"][i].val0;
+                    $.each(seasonData, function(key) {
+                        totalScore += seasonData[key][i].val2;
+                        if (matchCode == key) {
+                            return false;
+                        }
+                    })
+                    var rank = i + 1;
+                    tableMarkup += "<tr><td>" + rank + "</td><td>" + playerName + "</td><td class='sort'>" + totalScore + "</td></tr>"
+                }
+                $("#leaderBoard tbody").html(tableMarkup)
+                sortTable();
+            }
+
+            function sortTable() {
+                var rows = $('#leaderBoard tbody  tr').get();
+
+                rows.sort(function(a, b) {
+
+                    var A = parseInt($(a).children('td').eq(2).text());
+                    var B = parseInt($(b).children('td').eq(2).text());
+
+                    if (B < A) {
+                        return -1;
+                    }
+
+                    if (B > A) {
+                        return 1;
+                    }
+
+                    return 0;
+
+                });
+
+                $.each(rows, function(index, row) {
+                    var rank = index + 1;
+                    $(row).find('td').eq(0).text(rank);
+                    $('#leaderBoard').children('tbody').append(row);
+                });
+                $('#leaderBoard tbody tr:odd').addClass('odd');
+                $('#leaderBoard tbody tr:even').addClass('even');
+            }
+
+
+        })
+        </script>
+        <!-- CloudFlare CDN mousewheel plugin with fallback to local -->
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/jquery-mousewheel/3.1.6/jquery.mousewheel.min.js"></script>
+        <script>
+        $.event.special.mousewheel || document.write('<script src="../js/minified/jquery.mousewheel.min.js"><\/script>')
+        </script>
+        <!-- custom scrollbar plugin (latest version) via Github with fallback to local -->
+        <script src="http://malihu.github.io/custom-scrollbar/jquery.mCustomScrollbar.min.js"></script>
+        <script>
+        window.mCustomScrollbar || document.write('<script src="../js/minified/jquery.mCustomScrollbar.min.js"><\/script>')
+        </script>
+    </div>
+</body>
+
+</html>
